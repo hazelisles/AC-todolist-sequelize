@@ -4,8 +4,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>代辦清單</title>
+    <link href="https://bootswatch.com/5/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   </head>
-  <body>
+  <body class="bg-light">
+    <header>
+    <nav class="navbar navbar-dark bg-primary">
+      <div class="container-fluid justify-content-between">
+        <a href="/" class="navbar-brand">{{#if isAuthenticated}}{{ user.name}}'s {{/if}}
+        Todo List</a>
+        <div class="buttongroup">
+          {{#if isAuthenticated}}
+          <a href="/new" class="btn btn-outline-light">Create</a>
+          <a href="/users/logout" class="btn btn-outline-light">Logout</a>
+          {{else}}
+          <a href="/users/login" class="btn btn-outline-light">Login</a>
+          {{/if}}
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container m-5">
     {{{body}}}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+  <script>
   </body>
 </html>
