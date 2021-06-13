@@ -1,0 +1,28 @@
+<div class="todo-title mb-3">
+  <h1>{{#if isAuthenticated}}{{ user.name }}'s {{/if}}
+    Todo List</h1>
+</div>
+
+<ul class="list-group">
+  {{#each todos}}
+  <li class="list-group-item">
+    <div class="row justify-content-between">
+      <div class="col-auto my-auto">
+        <input class="form-check-input me-2" type="checkbox" name="isDone"
+          aria-label="Checkbox for following text input" {{#if this.isDone}} checked {{/if}} disabled>
+        <h4 style="display: inline; ">
+          {{ this.name }}
+        </h4>
+      </div>
+      <div class="col-auto my-2">
+        <a href="./todos/{{ this.id }}" class="btn btn-secondary mr-2">Detail</a>
+        <a href="./todos/{{ this.id }}/edit" class="btn btn-success mr-2">Edit</a>
+        <form action="./todos/{{ this.id }}?_method=DELETE" method="POST" style="display: inline;"
+          onsubmit="return deleteConfirm();">
+          <button type="submit" class="btn btn-danger mr-2">Delete</button>
+        </form>
+      </div>
+    </div>
+  </li>
+  {{/each}}
+</ul>
