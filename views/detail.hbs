@@ -1,0 +1,19 @@
+<div class="todo-title mb-3">
+  <h1>Todo Detail</h1>
+</div>
+
+<div class="input-group input-group-lg">
+  <div class="input-group-text">
+    <input class="form-check-input mt-0" type="checkbox" name="isDone" aria-label="Checkbox for following text input"
+      {{#if todo.isDone}} checked {{/if}} disabled>
+  </div>
+  <input class="form-control" type="text" name="name" value="Mission: {{ todo.name }}" disabled>
+</div>
+<div class="my-3">
+  <a href="/todos/{{ todo.id }}/edit"><button class="btn btn-success mr-2">Edit</button></a>
+  <form action="/todos/{{ todo.id }}?_method=DELETE" method="POST" style="display: inline"
+    onsubmit="return deleteConfirm();">
+    <button type="submit" class="btn btn-danger mr-2">Delete</button>
+  </form>
+  <a href="/"><button class="btn btn-dark">Back</button></a>
+</div>
