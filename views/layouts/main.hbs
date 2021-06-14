@@ -17,13 +17,21 @@
       <div class="container-fluid justify-content-between">
         <a href="/" class="navbar-brand">{{#if isAuthenticated}}{{ user.name}}'s {{/if}}
         Todo List</a>
-        <div class="buttongroup">
+        <div class="buttongroup row">
           {{#if isAuthenticated}}
-          <a href="/new" class="btn btn-outline-light">Create</a>
-          <a href="/users/logout" class="btn btn-outline-light">Logout</a>
+          <div class="col-5">
+            <a href="/new" class="btn btn-outline-light">Create</a>
+          </div>
+          <div class="col-6">
+            <a href="/users/logout" class="btn btn-light">Logout</a>
+          </div>
           {{else}}
-          <a href="/users/login" class="btn btn-outline-light">Login</a>
-          <a href="/users/register" class="btn btn-light">Sign Up</a>
+          <div class="col-5">
+            <a href="/users/login" class="btn btn-outline-light">Login</a>
+          </div>
+          <div class="col-7">
+            <a href="/users/register" class="btn btn-light">Sign Up</a>
+          </div>
           {{/if}}
         </div>
       </div>
