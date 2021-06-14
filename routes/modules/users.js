@@ -56,6 +56,7 @@ router.post('/register', (req, res) => {
       }
       return bcrypt
         .genSalt(10)
+        .then(salt => bcrypt.hash(password, salt))
         .then(hash => User.create({
           name, email, password: hash
         }))
@@ -67,7 +68,7 @@ router.post('/register', (req, res) => {
     })
 })
 
-router.get('logout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.logout()
   req.flash('success_msg', '你已經成功登出。')
   res.redirect('/users/login')
