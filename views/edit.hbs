@@ -1,0 +1,16 @@
+<div class="todo-title mb-3">
+  <h1>Edit Todo</h1>
+</div>
+
+<form action="/todos/{{ todo.id }}?_method=PUT" method="POST">
+  <div class="input-group input-group-lg">
+    <div class="input-group-text">
+      <input class="form-check-input mt-0" type="checkbox" name="isDone" aria-label="Checkbox for following text input"
+        {{#if todo.isDone}} checked {{/if}}>
+    </div>
+    <input type="text" class="form-control" id="editTodo" name="name" placeholder="{{ todo.name }} ..."
+      value="{{ todo.name }}" aria-label="Text input with checkbox" aria-describedby="editTodo">
+  </div>
+  <button type="submit" class="btn btn-success mt-3">Save</button>
+</form>
+<a href="/"><button class="btn btn-dark mt-3">Back</button></a>
